@@ -86,7 +86,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## Status codes de requisições <span style="color: orange;">POST</span>
 
 - Todas as requisições **POST** retornaM o status code 201 (CREATED) além do retorno (mensagem de `“OK”`).
-- [ ]  Para os casos em que o usuário tenta enviar um tweet na rota **POST** `/tweets` sem antes ter feito login na rota **POST** `/sign-up`, retorna 401 (UNAUTHORIZED).
+- Para os casos em que o usuário tenta enviar um tweet na rota **POST** `/tweets` sem antes ter feito login na rota **POST** `/sign-up`, retorna 401 (UNAUTHORIZED).
 
 
 
