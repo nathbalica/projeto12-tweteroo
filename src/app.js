@@ -61,10 +61,10 @@ app.post("/tweets", (req, res) => {
 
 // Endpoint: Obter tweets de um usuário específico
 app.get("/tweets/:USERNAME", (req, res) => {
-    const { username } = req.params;
+    const { USERNAME } = req.params;
 
-    const userTweets = tweets.find(tweet => tweet.username === username);
-    const user = users.find(user => user.username === username)
+    const userTweets = tweets.filter(tweet => tweet.username === USERNAME);
+    const user = users.find(user => user.username === USERNAME);
 
     const userTweetsWithAvatar = userTweets.map(tweet => ({
         username: tweet.username,
@@ -73,7 +73,7 @@ app.get("/tweets/:USERNAME", (req, res) => {
     }));
 
     res.send(userTweetsWithAvatar);
-})
+});
 
 // Endpoint: Obter tweets por página
 app.get("/tweets", (req, res) => {
