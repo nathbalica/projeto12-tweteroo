@@ -60,7 +60,7 @@ app.post("/tweets", (req, res) => {
 })
 
 // Endpoint: Obter tweets de um usuário específico
-app.get("/tweets/:username", (req, res) => {
+app.get("/tweets/:USERNAME", (req, res) => {
     const { username } = req.params;
 
     const userTweets = tweets.find(tweet => tweet.username === username);
