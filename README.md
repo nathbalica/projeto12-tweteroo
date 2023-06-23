@@ -39,7 +39,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ```
 - Esse endpoint recebe o valor de username por meio de um header user. 
-- 
 
 - Se os valores de username e avatar não tiverem sido enviados e não são strings. Responde com a mensagem “Todos os campos são obrigatórios!”.
 
