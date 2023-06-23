@@ -77,7 +77,19 @@ app.post("/tweets", (req, res) => {
 })
 
 app.get("/tweets", (req, res) => {
-    const lastTenTweets = tweets.slice(-10).map(tweet => {
+    const page = parseInt(req.query.page); // Obter o valor da página da query string como um número inteiro
+
+    if (!page || page < 1 || isNaN(page)) {
+        res.status(400).send('Informe uma página válida!');
+        return;
+    }
+
+    const tweetsPerPage = 10;
+
+    const startIndex = page ? (page - 1) * tweetsPerPage : tweets.length - tweetsPerPage;
+    const endIndex = page ? page * tweetsPerPage : tweets.length;
+
+    const tweetsForPage = tweets.slice(startIndex, endIndex).map(tweet => {
         const user = users.find(user => user.username === tweet.username);
 
         return {
@@ -87,7 +99,7 @@ app.get("/tweets", (req, res) => {
         };
     });
 
-    res.send(lastTenTweets);
+    res.send(tweetsForPage);
 })
 
 
