@@ -78,7 +78,9 @@ app.get("/tweets/:username", (req, res) => {
 // Endpoint: Obter tweets por página
 app.get("/tweets", (req, res) => {
     const page = parseInt(req.query.page);
-    if (!page || page < 1 || isNaN(page)) {
+    console.log(page)
+
+    if (page < 1 ) {
         res.status(400).send('Informe uma página válida!');
         return;
     }
